@@ -1,0 +1,15 @@
+@import 'src/common/styles/sass/variables';
+@import 'src/common/styles/sass/mixins';
+
+.operationsContainer{
+  @include blockContainer();
+
+  .operations{
+    height: 52px;
+    padding: 1px;
+    text-align: right;
+
+    display: flex;
+    justify-content: space-between;
+  }
+}

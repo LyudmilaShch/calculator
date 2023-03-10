@@ -1,0 +1,49 @@
+@import 'src/common/styles/sass/variables';
+@import 'src/common/styles/sass/mixins';
+
+.calculatorPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: $bgColor;
+
+  .calculatorContainer {
+    background-color: white;
+    width: 695px;
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .toggleContainer{
+      display: flex;
+      align-items: center;
+      width: 90%;
+
+      .toggle{
+        @include blockHalfWidth();
+      }
+    }
+
+    .calculator {
+      display: flex;
+      align-items: center;
+      width: 90%;
+
+      .calculatorBlocks {
+        @include blockHalfWidth();
+      }
+
+      .constructorBlock {
+        @include blockHalfWidth();
+      }
+    }
+
+  }
+}

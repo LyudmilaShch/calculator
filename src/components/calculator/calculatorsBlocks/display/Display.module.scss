@@ -1,0 +1,21 @@
+@import 'src/common/styles/sass/variables';
+@import 'src/common/styles/sass/mixins';
+
+.displayContainer{
+  @include blockContainer();
+
+  .display {
+    height: 52px;
+    width: 232px;
+    text-align: right;
+    padding: 4px;
+
+    border: none;
+    border-radius: 6px;
+    background-color: $bgColor;
+
+    @include text(36px, $textColor, 800);
+
+    line-height: 44px;
+  }
+}

@@ -1,0 +1,19 @@
+@import 'src/common/styles/sass/variables';
+@import 'src/common/styles/sass/mixins';
+
+.numberButtonsContainer{
+  @include blockContainer();
+
+  .numbers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 230px;
+    gap: 6px;
+    flex-wrap: wrap;
+
+    & :nth-child(10) {
+      flex-grow: 1;
+    }
+  }
+}

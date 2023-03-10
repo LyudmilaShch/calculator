@@ -1,0 +1,24 @@
+@import 'src/common/styles/sass/variables';
+@import 'src/common/styles/sass/mixins';
+
+.toggleButtonContainer{
+  width: 243px;
+  height: 38px;
+  background-color: $bgColor;
+  border-radius: 6px;
+  padding: 1px;
+
+  .toggle{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    .toggleButton{
+      @include text(14px, $secondTextColor, 500);
+      text-transform: capitalize !important;
+      width: 50%;
+      border: 1px solid #f3f4f6 !important;
+    }
+  }
+
+}
