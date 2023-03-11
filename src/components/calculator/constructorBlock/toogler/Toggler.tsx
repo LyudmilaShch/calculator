@@ -7,7 +7,10 @@ import Button from '@mui/material/Button/Button';
 
 import s from './Toggler.module.scss';
 
-export const Toggler = () => {
+type TogglerType = {
+  handleActiveSwitcher: any;
+};
+export const Toggler = ({ handleActiveSwitcher }: TogglerType) => {
   return (
     <div className={s.toggleButtonContainer}>
       <Box color="standard" className={s.toggle}>
