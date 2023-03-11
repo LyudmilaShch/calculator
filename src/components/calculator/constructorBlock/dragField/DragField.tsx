@@ -44,7 +44,6 @@ export const DragField = ({
 
   const style = {
     borderBottom: droppedElems.length && isOver ? '2px solid #5D5FEF' : '',
-    // borderTop: droppedElems.length && isOver ? '2px solid #5D5FEF' : '',
   };
 
   const sensors = useSensors(
@@ -66,6 +65,7 @@ export const DragField = ({
           item={item}
           selected={selected}
           deleteDroppedElem={deleteDroppedElem}
+          isRef={item.id !== 'display'}
         />
       </div>
     );

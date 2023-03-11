@@ -12,14 +12,13 @@ import { DragField, Toggler } from './constructorBlock';
 export const Calculator = () => {
   const [selected, setSelected] = useState('Constructor');
   const draggableItems: DraggableItemType[] = [
-    { id: 'display', component: <Display />, isOnCanvas: false },
-    { id: 'operations', component: <Operations />, isOnCanvas: false },
-    { id: 'numberButtons', component: <NumberButtons />, isOnCanvas: false },
-    { id: 'equalsButton', component: <EqualsButton />, isOnCanvas: false },
+    { id: 'display', component: <Display /> },
+    { id: 'operations', component: <Operations /> },
+    { id: 'numberButtons', component: <NumberButtons /> },
+    { id: 'equalsButton', component: <EqualsButton /> },
   ];
 
   const [droppedElems, setDroppedElems] = useState<DraggableItemType[]>([]);
-
   const handleActiveSwitcher = (id: string) => {
     setSelected(id);
   };
@@ -69,8 +68,8 @@ export const Calculator = () => {
             <Toggler handleActiveSwitcher={handleActiveSwitcher} />
           </div>
         </div>
-        <DndContext onDragEnd={handleDragEnd}>
-          <div className={s.calculator}>
+        <div className={s.calculator}>
+          <DndContext onDragEnd={handleDragEnd}>
             <div className={s.calculatorBlocks}>{calcElementsList}</div>
             <div className={s.constructorBlock}>
               <DragField
@@ -80,8 +79,8 @@ export const Calculator = () => {
                 setDroppedElems={setDroppedElems}
               />
             </div>
-          </div>
-        </DndContext>
+          </DndContext>
+        </div>
       </div>
     </div>
   );

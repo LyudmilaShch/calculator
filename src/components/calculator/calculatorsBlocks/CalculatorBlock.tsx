@@ -12,12 +12,14 @@ type CalculatorBlockType = {
   selected?: string;
   deleteDroppedElem?: (item: DraggableItemType) => void;
   layoutDisabledStyle?: boolean;
+  isRef?: boolean;
 };
 export const CalculatorBlock = ({
   item,
   selected,
   deleteDroppedElem,
   layoutDisabledStyle,
+  isRef = true,
 }: CalculatorBlockType) => {
   const { attributes, listeners, setNodeRef, isDragging, transform, transition } =
     useSortable({
@@ -36,9 +38,6 @@ export const CalculatorBlock = ({
       className={blockClassName}
       style={{
         opacity: isDragging ? '1' : '',
-        boxShadow: isDragging
-          ? '0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1)'
-          : '',
       }}
     >
       {item.component}
@@ -55,7 +54,7 @@ export const CalculatorBlock = ({
     <>
       <div
         className={blockClassName}
-        ref={setNodeRef}
+        ref={isRef ? setNodeRef : null}
         style={style}
         {...attributes}
         {...listeners}
