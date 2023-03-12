@@ -125,6 +125,7 @@
       }
     ],
     "no-use-before-define": "off",
+    "default-param-last": 0,
     "no-param-reassign": [
       "error",
       {

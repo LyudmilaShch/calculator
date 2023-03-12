@@ -59,13 +59,16 @@ export const DragField = ({
   );
 
   const droppedRuntimeElemList = droppedElems.map(item => {
+    const classNameBlock =
+      selected === 'Constructor' && item.id !== 'display' ? ' ' : s.disable;
+
     return (
-      <div className={item.id === 'display' ? s.disable : ' '} key={item.id}>
+      <div className={classNameBlock} key={item.id}>
         <CalculatorBlock
           item={item}
           selected={selected}
           deleteDroppedElem={deleteDroppedElem}
-          isRef={item.id !== 'display'}
+          isRef={item.id !== 'display' && selected === 'Constructor'}
         />
       </div>
     );
@@ -97,16 +100,22 @@ export const DragField = ({
   };
 
   return (
-    <DndContext
-      onDragEnd={handleDragEnd}
-      sensors={sensors}
-      collisionDetection={closestCenter}
-    >
-      <div ref={setNodeRef} style={style}>
-        <SortableContext items={droppedElems} strategy={verticalListSortingStrategy}>
-          {droppedElemList}
-        </SortableContext>
-      </div>
-    </DndContext>
+    <div>
+      {selected === 'Constructor' ? (
+        <DndContext
+          onDragEnd={handleDragEnd}
+          sensors={sensors}
+          collisionDetection={closestCenter}
+        >
+          <div ref={setNodeRef} style={style}>
+            <SortableContext items={droppedElems} strategy={verticalListSortingStrategy}>
+              {droppedElemList}
+            </SortableContext>
+          </div>
+        </DndContext>
+      ) : (
+        <div>{droppedElemList}</div>
+      )}
+    </div>
   );
 };

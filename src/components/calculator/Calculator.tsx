@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
+import { useSelector } from 'react-redux';
 
+import { RootState } from '../../store/store';
 import { DraggableItemType } from '../../ts/types';
 
 import s from './Calculator.module.scss';
@@ -10,7 +12,7 @@ import { CalculatorBlock } from './calculatorsBlocks/CalculatorBlock';
 import { DragField, Toggler } from './constructorBlock';
 
 export const Calculator = () => {
-  const [selected, setSelected] = useState('Constructor');
+  const mode = useSelector((state: RootState) => state.calculator.mode);
   const draggableItems: DraggableItemType[] = [
     { id: 'display', component: <Display /> },
     { id: 'operations', component: <Operations /> },
@@ -19,9 +21,6 @@ export const Calculator = () => {
   ];
 
   const [droppedElems, setDroppedElems] = useState<DraggableItemType[]>([]);
-  const handleActiveSwitcher = (id: string) => {
-    setSelected(id);
-  };
   const handleDragEnd = (event: DragEndEvent) => {
     const { id } = event.active;
 
@@ -37,7 +36,6 @@ export const Calculator = () => {
       });
     }
   };
-
   const deleteDroppedElem = (item: DraggableItemType) => {
     const filtered = [...droppedElems].filter(elem => elem.id !== item.id);
 
@@ -52,7 +50,7 @@ export const Calculator = () => {
       <CalculatorBlock
         key={el.id}
         item={el}
-        selected={selected}
+        selected={mode}
         deleteDroppedElem={deleteDroppedElem}
         layoutDisabledStyle={layoutDisabledStyle}
       />
@@ -65,16 +63,18 @@ export const Calculator = () => {
         <div className={s.toggleContainer}>
           <div className={s.toggle} />
           <div className={s.toggle}>
-            <Toggler handleActiveSwitcher={handleActiveSwitcher} />
+            <Toggler />
           </div>
         </div>
         <div className={s.calculator}>
           <DndContext onDragEnd={handleDragEnd}>
-            <div className={s.calculatorBlocks}>{calcElementsList}</div>
+            <div className={s.calculatorBlocks}>
+              {mode === 'Constructor' && <div>{calcElementsList}</div>}
+            </div>
             <div className={s.constructorBlock}>
               <DragField
                 deleteDroppedElem={deleteDroppedElem}
-                selected={selected}
+                selected={mode}
                 droppedElems={droppedElems}
                 setDroppedElems={setDroppedElems}
               />

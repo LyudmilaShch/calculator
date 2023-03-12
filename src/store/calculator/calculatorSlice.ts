@@ -1,21 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export type InitialStateType = {
-  current: string;
-  previous: string;
-  operation: string;
-  overwrite: boolean;
+  mode: 'Constructor' | 'RunTime';
 };
 
 const initialState: InitialStateType = {
-  current: '0',
-  previous: '0',
-  operation: '',
-  overwrite: false,
+  mode: 'Constructor',
 };
 
 export const slice = createSlice({
   name: 'calculator',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleConstructorMode(state = initialState, { payload }) {
+      return {
+        ...state,
+        mode: payload,
+      };
+    },
+  },
 });
+export const { toggleConstructorMode } = slice.actions;

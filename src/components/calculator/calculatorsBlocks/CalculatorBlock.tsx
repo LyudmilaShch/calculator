@@ -24,6 +24,8 @@ export const CalculatorBlock = ({
   const { attributes, listeners, setNodeRef, isDragging, transform, transition } =
     useSortable({
       id: item.id,
+      data: { ...item },
+      disabled: selected === 'Runtime',
     });
 
   const style = {
