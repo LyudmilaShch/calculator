@@ -1,5 +1,19 @@
-.disable{
+@import 'src/common/styles/sass/variables';
+@import 'src/common/styles/sass/mixins';
+
+.item{
+  box-shadow: $boxShadow;
+  &:hover{
+    button, input, div{
+      cursor: move;
+    }
+  }
+}
+.disable {
   opacity: 0.4;
   user-select: none;
   pointer-events: none;
+  box-shadow: none !important;
 }
+
+

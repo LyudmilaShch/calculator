@@ -12,16 +12,15 @@ import {
 import { arrayMove } from '@dnd-kit/sortable';
 import { useSelector } from 'react-redux';
 
-import { CalculatorBlockContainer } from '../containers/calculatorBlockContainer/CalculatorBlockContainer';
-import { DragItemContainer } from '../containers/dragItemContainer';
+import { CalculatorBlockContainer, DragItemContainer } from '../containers';
 
 import s from './Calculator.module.scss';
 import { Display, EqualsButton, NumberButtons, Operations } from './calculatorsBlocks';
-import { Toggler } from './constructorBlock';
+import { Toggler } from './toogler';
 
 import { CalcItem } from 'common';
-import { useSensorsForCalc } from 'hooks/UseSensorsForCalc';
-import { RootState } from 'store/store';
+import { useSensorsForCalc } from 'hooks';
+import { RootState } from 'store';
 import { DraggableItemType, KeysType } from 'ts/types';
 
 type DraggableItemsType = {

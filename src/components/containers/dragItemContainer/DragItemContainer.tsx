@@ -6,17 +6,16 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import Box from '@mui/material/Box/Box';
 import Typography from '@mui/material/Typography/Typography';
 
-import s from '../../calculator/constructorBlock/dragField/DragField.module.scss';
-
+import s from './DragItemContainer.module.scss';
 import { SortableItem } from './sortableItem';
 
-import { DraggableItemType } from 'ts/types';
+import { DraggableItemType, ModeType } from 'ts/types';
 
 type DragItemContainerType = {
   containerId: string;
   items: DraggableItemType[];
   activeId: string | null;
-  mode: string;
+  mode: ModeType;
   deleteDroppedElem: (item: DraggableItemType) => void;
 };
 
@@ -34,7 +33,7 @@ export const DragItemContainer = ({
   return (
     <div ref={setNodeRef}>
       {!items.length ? (
-        <Box className={s.DragFieldContainer}>
+        <Box className={s.emptyСontainer}>
           <AddPhotoAlternateIcon />
           <Typography variant="h3" className={s.title}>
             Перетащите сюда
@@ -49,19 +48,21 @@ export const DragItemContainer = ({
           items={items}
           strategy={verticalListSortingStrategy}
         >
-          {items.map(item => {
-            return (
-              <div key={item.id}>
-                <SortableItem
-                  item={item}
-                  isRef={item.id !== 'display' && mode === 'Constructor'}
-                  activeId={activeId}
-                  mode={mode}
-                  deleteDroppedElem={deleteDroppedElem}
-                />
-              </div>
-            );
-          })}
+          <div className={s.DragFieldContainer}>
+            {items.map(item => {
+              return (
+                <div key={item.id}>
+                  <SortableItem
+                    item={item}
+                    isRef={item.id !== 'display' && mode === 'Constructor'}
+                    activeId={activeId}
+                    mode={mode}
+                    deleteDroppedElem={deleteDroppedElem}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </SortableContext>
       )}
     </div>

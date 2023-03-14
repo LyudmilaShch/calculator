@@ -1,0 +1,1 @@
+export { replaceFloatPoint } from './replaceFloatPoint';

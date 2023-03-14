@@ -1,5 +1,19 @@
-import { slice } from './calculatorSlice';
+import {
+  slice,
+  toggleConstructorMode,
+  addNumber,
+  addOperation,
+  resetCalc,
+  calculate,
+} from './calculatorSlice';
 
 const calculatorReducer = slice.reducer;
 
-export { calculatorReducer };
+export {
+  calculatorReducer,
+  toggleConstructorMode,
+  addNumber,
+  addOperation,
+  resetCalc,
+  calculate,
+};

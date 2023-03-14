@@ -13,7 +13,7 @@ export const CalcItem = ({ item, copyItem }: CalcItemType) => {
   return (
     <div>
       {item ? (
-        <div>{item.component}</div>
+        <div className={s.item}>{item.component}</div>
       ) : (
         <div className={s.disable}>{copyItem?.component}</div>
       )}

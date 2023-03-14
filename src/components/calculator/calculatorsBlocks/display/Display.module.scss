@@ -14,8 +14,13 @@
     border-radius: 6px;
     background-color: $bgColor;
 
-    @include text(36px, $textColor, 800);
-
     line-height: 44px;
+  }
+
+  .littleFontSize{
+    @include text(20px, $textColor, 800);
+  }
+  .bigFontSize{
+    @include text(36px, $textColor, 800);
   }
 }

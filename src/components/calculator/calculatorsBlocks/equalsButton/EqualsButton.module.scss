@@ -12,4 +12,10 @@
     border-radius: 6px;
     @include text(14px, #fff, 500);
   }
+
+  .active {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

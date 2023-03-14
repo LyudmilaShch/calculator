@@ -12,3 +12,5 @@ export type DraggableItemType = {
 };
 
 export type KeysType = 'constructorItems' | 'calculatorItems';
+
+export type ModeType = 'Constructor' | 'RunTime';

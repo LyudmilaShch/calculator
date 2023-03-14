@@ -1,12 +1,21 @@
 @import '../../styles/sass/variables';
 @import '../../styles/sass/mixins';
 
-.numberButton{
+.numberButton {
   border: 1px solid $bgColor;
-  border-radius: 6px ;
+  border-radius: 6px;
   background-color: transparent;
   width: 72px;
   height: 48px;
   margin: 2px;
   @include text(14px, $textColor, 500);
+
 }
+
+.active {
+  &:hover {
+    border: 2px solid $primaryColor;
+    cursor: pointer;
+  }
+}
+

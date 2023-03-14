@@ -1,8 +1,22 @@
-.disable {
-  user-select: none;
-  pointer-events: none;
-}
+@import 'src/common/styles/sass/variables';
+@import 'src/common/styles/sass/mixins';
 
 .transparent{
   opacity: 0.5;
+}
+
+.dragCursor{
+  &:hover{
+    button, div{
+      cursor: move;
+    }
+  }
+}
+
+.noDragCursor{
+  &:hover{
+    input, div{
+      cursor: not-allowed;
+    }
+  }
 }

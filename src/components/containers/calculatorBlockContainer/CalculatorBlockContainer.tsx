@@ -1,5 +1,6 @@
 import { useDraggable } from '@dnd-kit/core';
 
+import s from './CalculatorBlockContainer.module.scss';
 import { DraggableItem } from './draggableItem';
 
 import { DraggableItemType } from 'ts/types';
@@ -20,7 +21,7 @@ export const CalculatorBlockContainer = ({
   });
 
   return (
-    <div ref={setNodeRef}>
+    <div ref={setNodeRef} className={s.CalculatorBlockContainer}>
       {copyItems.map(el => {
         const item = items.find(item => item.id === el.id);
 

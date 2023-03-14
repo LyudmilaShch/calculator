@@ -5,13 +5,13 @@ import { CSS } from '@dnd-kit/utilities';
 
 import s from './SortableItem.module.scss';
 
-import { DraggableItemType } from 'ts/types';
+import { DraggableItemType, ModeType } from 'ts/types';
 
 type SortableItemType = {
   item: DraggableItemType;
   isRef: boolean;
   activeId: string | null;
-  mode: string;
+  mode: ModeType;
   deleteDroppedElem: (item: DraggableItemType) => void;
 };
 export const SortableItem = ({
@@ -31,8 +31,12 @@ export const SortableItem = ({
     transition,
   };
 
+  const cursorClassName =
+    item.id !== 'display' ? ` ${s.dragCursor}` : ` ${s.noDragCursor}`;
   const blockClassName =
-    (mode === 'RunTime' ? s.disabled : '') + (isDragging ? ` ${s.transparent}` : ' ');
+    (isDragging ? ` ${s.transparent}` : ' ') +
+    (mode === 'Constructor' ? cursorClassName : ' ');
+
   const handleDeleteDroppedElem = () => {
     deleteDroppedElem(item);
   };

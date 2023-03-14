@@ -6,11 +6,9 @@ import Box from '@mui/material/Box/Box';
 import Button from '@mui/material/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { toggleConstructorMode } from '../../../../store/calculator/calculatorSlice';
-
 import s from './Toggler.module.scss';
 
-import { RootState } from 'store/store';
+import { resetCalc, toggleConstructorMode, RootState } from 'store';
 
 export const Toggler = () => {
   const dispatch = useDispatch();
@@ -19,6 +17,7 @@ export const Toggler = () => {
     dispatch(toggleConstructorMode('RunTime'));
   };
   const onConstructorClick = () => {
+    dispatch(resetCalc());
     dispatch(toggleConstructorMode('Constructor'));
   };
 

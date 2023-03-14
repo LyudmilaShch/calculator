@@ -1,14 +1,14 @@
 @import 'src/common/styles/sass/variables';
 @import 'src/common/styles/sass/mixins';
 
-.DragFieldContainer{
+.emptyСontainer{
   display: flex;
   gap: 10px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 243px;
-  height: 448px;
+  height: 460px;
   padding: 2px;
   border: 2px dashed $borderColor;
   border-radius: 6px;
@@ -23,10 +23,11 @@
     text-align: center;
     max-width: 106px;
   }
-
 }
 
-.disable {
-  user-select: none;
-  pointer-events: none;
+.DragFieldContainer{
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
