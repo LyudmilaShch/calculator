@@ -1,1 +1,1 @@
-export { OperationButton, NumberButton } from './components';
+export { OperationButton, NumberButton, CalcItem } from './components';

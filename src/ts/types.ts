@@ -10,3 +10,5 @@ export type DraggableItemType = {
   id: DraggableItemIdType;
   component: React.ReactNode;
 };
+
+export type KeysType = 'constructorItems' | 'calculatorItems';

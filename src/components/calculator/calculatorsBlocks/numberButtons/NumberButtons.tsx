@@ -23,7 +23,11 @@ export const NumberButtons = () => {
     <div className={s.numberButtonsContainer}>
       <div className={s.numbers}>
         {buttonValues.map(v => {
-          return <NumberButton key={v.value}>{v.value}</NumberButton>;
+          return (
+            <NumberButton key={v.value} onClickHandler={() => {}}>
+              {v.value}
+            </NumberButton>
+          );
         })}
       </div>
     </div>
